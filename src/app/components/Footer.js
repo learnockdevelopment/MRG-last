@@ -40,7 +40,7 @@ const Footer = () => {
            {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start">
             <div className="w-24 h-24 bg-white rounded-[46.50px] flex flex-col justify-center items-center mb-4">
-              <img className="w-16 h-14" src="/mrglogo.png" alt="Footer Logo" />
+              <img className="w-16 h-14" src="/mrgLogo.png" alt="Footer Logo" />
             </div>
             
           </div>
