@@ -8,17 +8,14 @@ const AboutSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mb-20 lg:mb-24">
           {/* Image with decorative elements */}
           <div className="relative lg:w-1/2 w-full">
-            <div className="hidden lg:block absolute -left-10 -top-10 w-full h-full border-[30px] border-gray-200 rounded-lg animate-fadeIn"></div>
-            <div className="relative overflow-hidden rounded-xl shadow-2xl z-10 transform transition-all hover:shadow-xl hover:-translate-y-1">
+            <div className="relative overflow-hidden rounded-xl  z-10  ">
               <img 
                 className="w-full h-auto object-cover" 
-                src="https://placehold.co/610x407" 
+                src="/homeAbout.png" 
                 alt="About Image"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-green-100 rounded-full opacity-30 animate-pulse"></div>
           </div>
           
           {/* Text Content */}
@@ -39,9 +36,7 @@ const AboutSection = () => {
               </p>
             </div>
             
-            <div className="mt-4">
-              <DiscoverMoreButton text="شاهد المزيد" />
-            </div>
+          
           </div>
         </div>
         
@@ -49,17 +44,14 @@ const AboutSection = () => {
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
           {/* Image with decorative elements */}
           <div className="relative lg:w-1/2 w-full">
-            <div className="hidden lg:block absolute -right-10 -top-10 w-full h-full border-[30px] border-gray-200 rounded-lg animate-fadeIn animation-delay-100"></div>
-            <div className="relative overflow-hidden rounded-xl shadow-2xl z-10 transform transition-all hover:shadow-xl hover:-translate-y-1">
+            <div className="relative overflow-hidden rounded-xl z-10 ">
               <img 
                 className="w-full h-auto object-cover" 
-                src="https://placehold.co/591x394" 
+                src="/homeAbout2.png" 
                 alt="Vision Image"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-100 rounded-full opacity-30 animate-pulse animation-delay-200"></div>
           </div>
           
           {/* Text Content */}

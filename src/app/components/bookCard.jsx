@@ -1,8 +1,8 @@
 import React from "react";
-
-const BookCard = ({ book }) => {
+import Link from "next/link";
+const BookCard = ({ book , id }) => {
   return (
-    <div className="group animate-fadeInUp w-full max-w-52 mx-auto mt-8">
+    <Link href={`/about/${id}`}  className="group animate-fadeInUp w-full max-w-52 mx-auto mt-8">
       <div
         className={`relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2`}
       >
@@ -16,7 +16,7 @@ const BookCard = ({ book }) => {
       <h3 className="mt-4 text-xl font-semibold text-center text-gray-800  font-tajawal">
         {book.title}
       </h3>
-    </div>
+    </Link>
   );
 };
 

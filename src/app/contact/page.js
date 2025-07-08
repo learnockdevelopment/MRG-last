@@ -1,4 +1,4 @@
-
+import ContactForm from "../components/contactForm";
 const ContactPage = () => {
   return (
     <section className="pt-32 pb-16 bg-green-50">
@@ -6,7 +6,7 @@ const ContactPage = () => {
       <div className="w-full h-52 bg-sky-950 flex justify-center items-center">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-slate-50 text-4xl font-medium font-tajawal">شركات</h1>
-          <div className="h-64 w-64 bg-white rounded-full p-4 flex items-center justify-center"><img src="/mrgHead.png" className="w-32 h-32"/></div>
+          <div className="h-64 w-64 bg-white rounded-full p-4 flex items-center justify-center"><img src="/mrgHead.png" className="w-36 h-36"/></div>
           <h1 className="text-slate-50 text-4xl font-medium font-tajawal">مجموعة</h1>
         </div>
       </div>
@@ -50,52 +50,7 @@ const ContactPage = () => {
       </div>
 
       {/* Contact Form */}
-      <div className="container mx-auto px-4 mt-28">
-        <div className="flex flex-col items-center gap-8">
-          <h2 className="text-4xl font-medium font-tajawal text-black">
-            تواصل معنا
-          </h2>
-          
-          <div className="w-full max-w-5xl bg-white rounded-3xl border border-neutral-400 p-8">
-            <form className="flex flex-col items-center gap-6">
-              <div className="w-full flex flex-col items-end gap-4">
-                <div className="w-full">
-                  <input 
-                    type="text" 
-                    placeholder="الاسم الاول" 
-                    className="w-full h-14 px-4 py-2 bg-white rounded-xl border border-teal-700/25 text-right text-base font-semibold font-cairo text-neutral-500 focus:outline-none focus:ring-2 focus:ring-teal-700/50"
-                    autoComplete="off"
-                  />
-                </div>
-                
-                <div className="w-full">
-                  <input 
-                    type="email" 
-                    placeholder="البريد الالكتروني" 
-                    className="w-full h-14 px-4 py-2 bg-white rounded-xl border border-teal-700/25 text-right text-base font-semibold font-cairo text-neutral-500 focus:outline-none focus:ring-2 focus:ring-teal-700/50"
-                    autoComplete="off"
-                  />
-                </div>
-                
-                <div className="w-full">
-                  <textarea 
-                    placeholder="اكتب رسالتك..." 
-                    rows="5"
-                    className="w-full p-4 bg-white rounded-xl border border-teal-700/25 text-right text-base font-semibold font-cairo text-neutral-500 focus:outline-none focus:ring-2 focus:ring-teal-700/50"
-                  ></textarea>
-                </div>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-48 h-14 bg-blue-900 rounded-3xl text-white text-base font-semibold font-cairo hover:bg-blue-800 transition-colors duration-300"
-              >
-                ارسالِ
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <ContactForm />
     </section>
   );
 };
