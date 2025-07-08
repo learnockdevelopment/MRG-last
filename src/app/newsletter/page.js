@@ -100,16 +100,16 @@ export default function newsletterPage() {
         <div class="self-stretch h-96 relative">
             <div class="w-28 h-7 left-[106px] top-[443px] absolute"></div>
             <div class="w-80 h-96 left-0 top-0 absolute rounded-2xl overflow-hidden">
-                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/newimg.jpg" />
+                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/mrg3.jpg" />
             </div>
         </div>
         <div class="w-24 h-7 justify-center text-black text-center text-base font-normal font-['Cairo'] leading-7">مستشار التحرير</div>
-        <div class="w-28 h-6 justify-center text-black text-center text-2xl font-medium font-['Cairo'] leading-relaxed">سمر طارق</div>
+        <div class="w-36 h-6 justify-center text-black text-center text-2xl font-medium font-['Cairo'] leading-relaxed">محمود رمضان</div>
     </div>
     <div class="w-80 inline-flex flex-col justify-start items-center gap-6">
         <div class="self-stretch h-96 relative">
             <div class="w-80 h-96 left-0 top-0 absolute rounded-2xl overflow-hidden">
-                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/newimg.jpg" />
+                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/mrg3.jpg" />
             </div>
         </div>
         <div class="w-16 h-7 justify-center text-black text-center text-base font-normal font-['Cairo'] leading-7">مدير التحرير</div>
@@ -118,7 +118,7 @@ export default function newsletterPage() {
     <div class="w-80 inline-flex flex-col justify-start items-center gap-6">
         <div class="self-stretch h-96 relative">
             <div class="w-80 h-96 left-0 top-0 absolute rounded-2xl overflow-hidden">
-                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/newimg.jpg" />
+                <img class="w-80 h-96 left-0 top-0 absolute rounded-lg shadow-[inset_0px_4px_4px_-20px_rgba(0,0,0,0.25)] object-cover" src="/mrg3.jpg" />
             </div>
         </div>
         <div class="w-32 h-7 justify-center text-black text-center text-base font-normal font-['Cairo'] leading-7">رئيس مجلس الإدارة</div>

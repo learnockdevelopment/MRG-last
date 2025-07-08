@@ -109,7 +109,7 @@ leading-loose">
               title={card.title}
               description={card.description}
               imageUrl={card.imageUrl}
-              link={card.link}
+              link={`/about/tafra`}
             />
           ))}
         </div>
