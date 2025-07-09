@@ -88,13 +88,7 @@ const HeroSection = () => {
       </div>
       
       {/* Background pattern */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div 
-          className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-blue-50 to-transparent opacity-30"
-          data-aos="fade-right"
-          data-aos-delay="100"
-        ></div>
-      </div>
+    
     </section>
   );
 };
