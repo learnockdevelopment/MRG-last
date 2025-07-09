@@ -1,33 +1,62 @@
-import React from 'react';
+"use client"
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HeroSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen flex items-center bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 py-12 lg:py-0">
         {/* Text Content */}
         <div className="lg:w-1/2 flex flex-col items-end gap-6 lg:gap-8 z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 text-right font-tajawal leading-tight animate-fadeInUp">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 text-right font-tajawal leading-tight"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             مجموعة شركات اقتصادية مصرية
           </h1>
           
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 text-right font-tajawal leading-relaxed max-w-lg animate-fadeInUp animation-delay-100">
+          <p 
+            className="text-lg md:text-xl lg:text-2xl text-gray-600 text-right font-tajawal leading-relaxed max-w-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             تـأسـسـت "مجـمـوعـة MRG" على يـد رجـل الـمجتمع الأسـتـاذ/ مـحـمـود رمضـان، لتصبح اليوم كـيـانـا اقتصاديـا مصريـا يواكـب تطـورات العصـر ويــخـدم احتياجـات الـمجتمع الـمتغيرة.
           </p>
           
-          <DiscoverMoreButton />
+          <div data-aos="fade-up" data-aos-delay="300">
+            <DiscoverMoreButton />
+          </div>
           
           {/* Stats Section */}
-          <div className="flex flex-wrap gap-4 mt-4 animate-fadeInUp animation-delay-200">
+          <div 
+            className="flex flex-wrap gap-4 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <div className="bg-green-100 rounded-xl shadow-sm px-6 py-3 flex items-center gap-3 hover:shadow-md transition-shadow">
               <span className="text-3xl font-bold text-blue-900 font-tajawal">15+</span>
               <span className="text-xl text-blue-900 font-tajawal">شركة</span>
             </div>
-            
           </div>
         </div>
         
         {/* Image Content */}
-        <div className="lg:w-1/2 relative h-[400px] sm:h-[500px] lg:h-[600px] w-full animate-fadeIn">
+        <div 
+          className="lg:w-1/2 relative h-[400px] sm:h-[500px] lg:h-[600px] w-full"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative w-full h-full max-w-2xl mx-auto">
               {/* Circular background */}
@@ -37,12 +66,22 @@ const HeroSection = () => {
                   src="/mrgHead.png" 
                   alt="Hero Image" 
                   loading="eager"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
                 />
               </div>
               
               {/* Decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute top-20 -left-20 w-24 h-24 bg-blue-200 rounded-full opacity-20 animate-pulse animation-delay-200"></div>
+              <div 
+                className="absolute -bottom-10 -right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse"
+                data-aos="fade"
+                data-aos-delay="500"
+              ></div>
+              <div 
+                className="absolute top-20 -left-20 w-24 h-24 bg-blue-200 rounded-full opacity-20 animate-pulse"
+                data-aos="fade"
+                data-aos-delay="600"
+              ></div>
             </div>
           </div>
         </div>
@@ -50,14 +89,18 @@ const HeroSection = () => {
       
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-blue-50 to-transparent opacity-30"></div>
+        <div 
+          className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-blue-50 to-transparent opacity-30"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        ></div>
       </div>
     </section>
   );
 };
 
 const DiscoverMoreButton = () => (
-  <button className="group flex items-center gap-4 transition-all hover:gap-6 animate-fadeInUp animation-delay-150">
+  <button className="group flex items-center gap-4 transition-all hover:gap-6">
     <span className="text-2xl font-medium text-green-700 font-tajawal group-hover:text-green-800 transition-colors">
       اكتشف المزيد
     </span>

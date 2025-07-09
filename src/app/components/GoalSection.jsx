@@ -12,7 +12,9 @@ const GoalsSection = () => {
     {
       type: 'image',
       src: "/Photo 1.png",
-      alt: "التميز في الجودة"
+      alt: "تطوير وتمكين الكوادر البشرية",
+            description: "الاستثمار في تدريب وتطوير فرق العمل لضمان تقديم أفضل ما لديهم من إبداع وكفاءة.",
+
     },
     {
       type: 'goal',
@@ -24,7 +26,9 @@ const GoalsSection = () => {
     {
       type: 'image',
       src: "/Photo 2.png",
-      alt: "توسيع نطاق التأثير"
+      alt: "تعزيز الاستدامه",
+            description: "تبني ممارسات مستدامة تدعم التنمية الاقتصادية والاجتماعية والبيئية.",
+
     },
     {
       type: 'goal',
@@ -36,7 +40,8 @@ const GoalsSection = () => {
     {
       type: 'image',
       src: "/Photo 3.png",
-      alt: "المسؤولية الاجتماعية"
+      alt: "تعزيز التكامل",
+            description: "توفير حلول متكاملة ومترابطة، تجمع بين التكنولوجيا، التدريب، والخدمات، مما يعزز قيمة العملاء ويحقق لهم النجاح في مختلف المجالات."
     }
   ];
 
@@ -56,7 +61,7 @@ const GoalsSection = () => {
               {item.type === 'goal' ? (
                 <GoalCard goal={item} index={index} />
               ) : (
-                <ImageCard src={item.src} alt={item.alt} />
+                <ImageCard src={item.src} alt={item.alt} description={item.description} />
               )}
             </div>
           ))}
@@ -82,16 +87,32 @@ const GoalCard = ({ goal, index }) => (
 
 );
 
-const ImageCard = ({ src, alt }) => (
-  <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-64 md:h-96">
+const ImageCard = ({ src, alt ,description }) => (
+  <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-64 md:h-96 group">
     <img 
       className="w-full h-full object-cover" 
       src={src} 
       alt={alt}
       loading="lazy"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+    {/* Overlay gradient */}
+    <div className="absolute inset-0 bg-blue-400/50 opacity-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+    {/* Text on hover */}
+    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="flex flex-col items-center text-center justify-center h-full p-8">
+
+      <h3 className="text-3xl md:text-4xl font-bold text-white font-tajawal mb-6">
+        {alt}
+      </h3>
+      <p className="text-xl md:text-2xl text-gray-200 font-tajawal leading-relaxed">
+      {description}
+    </p>
+    </div>
+    </div>
   </div>
 );
+
 
 export default GoalsSection;
