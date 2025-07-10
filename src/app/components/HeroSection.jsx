@@ -30,6 +30,7 @@ const HeroSection = () => {
             className="text-lg md:text-xl lg:text-2xl text-gray-600 text-right font-tajawal leading-relaxed max-w-lg"
             data-aos="fade-up"
             data-aos-delay="200"
+            dir='rtl'
           >
             تـأسـسـت "مجـمـوعـة MRG" على يـد رجـل الـمجتمع الأسـتـاذ/ مـحـمـود رمضـان، لتصبح اليوم كـيـانـا اقتصاديـا مصريـا يواكـب تطـورات العصـر ويــخـدم احتياجـات الـمجتمع الـمتغيرة.
           </p>

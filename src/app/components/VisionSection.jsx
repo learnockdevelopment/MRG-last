@@ -53,7 +53,7 @@ const VisionSection = ({
           {/* Content - always comes first in DOM but order changes with flex-direction */}
           <div className="lg:w-1/2 flex flex-col items-end text-right">
             {title && (
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-tajawal mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-tajawal mb-6" dir="rtl">
                 {title}
               </h2>
             )}

@@ -58,7 +58,7 @@ const Footer = () => {
 const FooterSection = ({ title, items, description, className = '' }) => {
   return (
     <div className={`flex flex-col gap-4 ${className}`}>
-      <h3 className="text-xl font-bold font-['Tajawal'] mb-2">
+      <h3 className="text-xl font-bold font-['Tajawal'] mb-2" dir='rtl'>
         {title}
       </h3>
       
@@ -73,7 +73,7 @@ const FooterSection = ({ title, items, description, className = '' }) => {
           ))}
         </ul>
       ) : (
-        <p className="text-base font-medium leading-loose text-right">
+        <p className="text-base font-medium leading-loose text-right" dir='rtl'>
           {description}
         </p>
       )}
