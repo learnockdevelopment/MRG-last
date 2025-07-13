@@ -4,9 +4,13 @@ import ContactForm from "@/app/components/contactForm";
 import VisionSection from "../../components/VisionSection";
 import { motion } from "framer-motion"; // For animations
 import { useEffect, useState } from "react";
-
-export default function AboutPage() {
+import { useSearchParams } from "next/navigation"; // For handling search params
+export default function CompanyPage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const searchParams = useSearchParams();
+  const title = searchParams.get("title");
+  const description = searchParams.get("description");
+  const imageUrl = searchParams.get("imageUrl");
 
   useEffect(() => {
     setIsLoaded(true);
@@ -17,7 +21,7 @@ export default function AboutPage() {
       {/* Hero Section with improved visibility */}
       <div
         style={{
-          backgroundImage: 'url("/mrg4.png")',
+          backgroundImage: `url("${imageUrl}")`,
         }}
         className="h-[60vh] relative bg-no-repeat bg-cover bg-center"
       >
@@ -48,7 +52,8 @@ export default function AboutPage() {
               style={{ direction: "rtl" }}
               className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight md:leading-snug max-w-4xl me-auto text-start relative  z-10"
             >
-              دار طفرة للنشر والتوزيع إحدى شركات مجموعة MRG
+              {`${title} 
+              إحدى شركات مجموعة MRG`}
             </motion.h1>
           </div>
         </motion.div>
