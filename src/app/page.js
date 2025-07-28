@@ -6,6 +6,7 @@ import GoalSection from './components/GoalSection';
 import VisionSection from './components/VisionSection';
 import CompaniesSection from './components/CompaniesSection';
 
+
 const App = () => {
   return (
     <div className="bg-green-50 overflow-hidden">

@@ -40,7 +40,7 @@ const VisionSection = ({
   };
 
   // Determine flex direction based on textFirst prop
-  const flexDirection = textFirst ? "lg:flex-row" : "lg:flex-row-reverse";
+  const flexDirection = textFirst ? "lg:flex-row-reverse" : "lg:flex-row-reverse";
 
   return (
     <section className={`relative bg-[#00164F] ${sectionPadding[imageType]}`}>
@@ -51,7 +51,7 @@ const VisionSection = ({
       <div className="max-w-7xl mx-auto relative z-10">
         <div className={`flex flex-col ${flexDirection} items-center gap-12`}>
           {/* Content - always comes first in DOM but order changes with flex-direction */}
-          <div className="lg:w-1/2 flex flex-col items-end text-right">
+          <div className="lg:w-1/2 flex flex-col items-start text-right">
             {title && (
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-tajawal mb-6" dir="rtl">
                 {title}

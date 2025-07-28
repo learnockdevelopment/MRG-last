@@ -12,7 +12,7 @@ const Navbar = () => {
   const navItems = [
     { text: "تواصل معنا", href: "/contact" },
     { text: "شركات المجموعة", href: "/companies" },
-    { text: "النشرة", href: "/newsletter" },
+    { text: "المجلة", href: "/newsletter" },
     { 
       text: "السيرة الذاتية", 
       href: "/about",
@@ -43,11 +43,11 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-emerald-100 backdrop-blur-sm bg-opacity-90">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 flex-row-reverse">
           
           
           {/* Navigation Items - Desktop */}
-          <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
+          <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse flex-row-reverse">
             {navItems.map((item, index) => (
               <div key={index} className="relative group">
                 {item.dropdown ? (
@@ -108,6 +108,16 @@ const Navbar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
+          </div>
+
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+              <img 
+                className="w-16 h-14 object-contain" 
+                src="/mrgLogo.png" 
+                alt="Company Logo" 
+              />
+            </Link>
           </div>
         </div>
         

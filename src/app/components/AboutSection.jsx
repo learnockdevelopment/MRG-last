@@ -5,7 +5,7 @@ const AboutSection = () => {
     <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* First Row */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mb-20 lg:mb-24">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16 mb-20 lg:mb-24">
           {/* Image with decorative elements */}
           <div className="relative lg:w-1/2 w-full">
             <div className="relative overflow-hidden rounded-xl  z-10  ">
@@ -19,8 +19,8 @@ const AboutSection = () => {
           </div>
           
           {/* Text Content */}
-          <div className="lg:w-1/2 flex flex-col items-end gap-6 animate-fadeInUp">
-            <div className="inline-flex items-center gap-3 mb-2">
+          <div className="lg:w-1/2 flex flex-col items-start gap-6 animate-fadeInUp ">
+            <div className="inline-flex items-center gap-3 mb-2 ">
               <div className="w-12 h-1 bg-green-600 rounded-full"></div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl text-blue-900 font-bold font-tajawal text-right">
                 عن المجموعة
@@ -41,7 +41,7 @@ const AboutSection = () => {
         </div>
         
         {/* Second Row (Vision) */}
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Image with decorative elements */}
           <div className="relative lg:w-1/2 w-full">
             <div className="relative overflow-hidden rounded-xl z-10 ">
@@ -55,7 +55,7 @@ const AboutSection = () => {
           </div>
           
           {/* Text Content */}
-          <div className="lg:w-1/2 flex flex-col items-end gap-6 animate-fadeInUp animation-delay-100">
+          <div className="lg:w-1/2 flex flex-col items-start gap-6 animate-fadeInUp animation-delay-100">
             <div className="inline-flex items-center gap-3 mb-2">
               <div className="w-12 h-1 bg-blue-600 rounded-full"></div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl text-blue-900 font-bold font-tajawal text-right">

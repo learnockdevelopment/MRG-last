@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Link from 'next/link';
+
 
 const HeroSection = () => {
   useEffect(() => {
@@ -15,9 +17,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center bg-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 py-12 lg:py-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row-reverse items-center gap-8 lg:gap-12 py-12 lg:py-0">
         {/* Text Content */}
-        <div className="lg:w-1/2 flex flex-col items-end gap-6 lg:gap-8 z-10">
+        <div className="lg:w-1/2 flex flex-col items-start gap-6 lg:gap-8 z-10">
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 text-right font-tajawal leading-tight"
             data-aos="fade-up"
@@ -95,7 +97,7 @@ const HeroSection = () => {
 };
 
 const DiscoverMoreButton = () => (
-  <button className="group flex items-center gap-4 transition-all hover:gap-6">
+  <Link href="/about" className="group flex items-center gap-4 transition-all hover:gap-6">
     <span className="text-2xl font-medium text-green-700 font-tajawal group-hover:text-green-800 transition-colors">
       اكتشف المزيد
     </span>
@@ -114,7 +116,7 @@ const DiscoverMoreButton = () => (
         />
       </svg>
     </div>
-  </button>
+  </Link>
 );
 
 export default HeroSection;

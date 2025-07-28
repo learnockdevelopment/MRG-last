@@ -49,7 +49,7 @@ export default function newsletterPage() {
   return (
     <section className="pt-32 pb-16 bg-green-50">
         <div class=" flex flex-col justify-start items-center gap-4  mb-12">
-    <div class="self-stretch h-20 text-center justify-start text-zinc-900 text-4xl font-bold font-['Cairo'] leading-[52px]">إصدارات نشرة MRG<br/></div>
+    <div class="self-stretch h-20 text-center justify-start text-zinc-900 text-4xl font-bold font-['Cairo'] leading-[52px]">إصدارات المجلة MRG<br/></div>
     <div class="self-stretch text-center justify-center text-zinc-700 text-2xl font-normal font-['Cairo'] leading-[52px] max-w-4xl mx-auto">تُعلن مجموعة MRG الاقتصادية عن إصدار “نشرة MRG “، وهي نشرة غير دورية تُسلّط الضوء على أنشطة شركات المجموعة، وتستعرض الفعاليات القادمة، الشراكات الجديدة،
  بالإضافة إلى نصائح مهنية من واقع مجالات عملنا المتنوعة.</div>
 </div>

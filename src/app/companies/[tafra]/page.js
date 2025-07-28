@@ -5,12 +5,15 @@ import VisionSection from "../../components/VisionSection";
 import { motion } from "framer-motion"; // For animations
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation"; // For handling search params
+import Link from 'next/link';
+
 export default function CompanyPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const searchParams = useSearchParams();
   const title = searchParams.get("title");
   const description = searchParams.get("description");
   const imageUrl = searchParams.get("imageUrl");
+  const websiteUrl = searchParams.get("websiteUrl");
 
   useEffect(() => {
     setIsLoaded(true);
@@ -44,6 +47,7 @@ export default function CompanyPage() {
           <div className="relative w-full text-end">
             {/* Decorative element */}
             <div className="absolute right-0  w-[150px] bg-green-600  -z-10 h-[400px] top-[-190px]"></div>
+          
 
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
@@ -55,6 +59,28 @@ export default function CompanyPage() {
               {`${title} 
               إحدى شركات مجموعة MRG`}
             </motion.h1>
+
+             {websiteUrl&& <Link href={websiteUrl} className="flex w-fit! items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
+                  <svg 
+                    className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45" 
+                    viewBox="0 0 24 24" 
+                    fill="none"
+                  >
+                    <path 
+                      d="M5 12H19M19 12L12 5M19 12L12 19" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xl sm:text-2xl text-green-700 font-tajawal font-medium">
+      الذهاب الي الموقع                </span>
+              </Link>
+             
+             }
           </div>
         </motion.div>
       </div>

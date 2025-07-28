@@ -8,14 +8,16 @@ const AboutPage = () => {
       title: "دار طفرة للنشر والتوزيع",
       description: `دار نشر مصرية وعضو إتحاد الناشرين المصريين وعضو إتحاد الناشرين العرب`,
       imageUrl: "/mrg4.png",
-      link: "dar-tafrah-publishing"
+      link: "dar-tafrah-publishing",
+      website: '#'
     },
     {
       id: 2,
       title: "أكاديمية ITalent",
       description: `مركز تدريب رائد يقدم برامج شاملة ومتخصصة في المجالات الحياتية والمهنية.`,
       imageUrl: "/cardmrg.jpg",
-      link: "italent-academy"
+      link: "italent-academy",
+      website: '#'
     },
     {
       id: 3,
@@ -36,7 +38,8 @@ const AboutPage = () => {
       title: "مصنع PURE PLAST",
       description: `رائد في صناعة منتجات PET والتعبئة والتغليف بتقنيات صديقة للبيئة.`,
       imageUrl: "/IMG_2631-1-scaled-1.jpg",
-      link: "pure-plast-factory"
+      link: "pure-plast-factory",
+      website: '#'
     },
     {
       id: 6,
@@ -61,7 +64,7 @@ const AboutPage = () => {
     },
     {
       id: 9,
-      title: "شركة MixMax",
+      title: "شركة MixMax للشاشات",
       description: `توريد شاشات تفاعلية مخصصة لقطاع الدعاية والإعلان.`,
       imageUrl: "/images-1.jpg",
       link: "mixmax"
@@ -130,6 +133,7 @@ leading-loose">
               description={card.description}
               imageUrl={card.imageUrl}
               link={`/companies/${card.link}`} // Assuming you want to link to a dynamic page
+              website={card.website}
             />
           ))}
         </div>
