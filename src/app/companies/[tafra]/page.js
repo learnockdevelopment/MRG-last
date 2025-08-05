@@ -228,7 +228,7 @@ export default function CompanyPage() {
                         <div>
                           <p className="text-sm text-gray-500">الهاتف</p>
                           <a
-                            href={`tel:${phone}`}
+                            href={`tel:${phone}`} dir="ltr"
                             className="text-xl font-medium text-green-700 hover:text-green-800 transition-colors"
                           >
                             {phone}
