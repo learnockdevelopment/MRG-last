@@ -5,9 +5,9 @@ const ContactPage = () => {
       {/* Hero Banner */}
       <div className="w-full h-52 bg-sky-950 flex justify-center items-center">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-slate-50 text-4xl font-medium font-tajawal">شركات</h1>
-          <div className="h-64 w-64 bg-white rounded-full p-4 flex items-center justify-center"><img src="/mrgHead.png" className="w-36 h-36"/></div>
           <h1 className="text-slate-50 text-4xl font-medium font-tajawal">مجموعة</h1>
+          <div className="h-64 w-64 bg-white rounded-full p-4 flex items-center justify-center"><img src="/mrgHead.png" className="w-36 h-36"/></div>
+          <h1 className="text-slate-50 text-4xl font-medium font-tajawal"> شركات</h1>
         </div>
       </div>
 

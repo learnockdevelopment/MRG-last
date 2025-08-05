@@ -48,7 +48,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-blue-800 text-center text-sm">
-          © {new Date().getFullYear()} جميع الحقوق محفوظة لمجموعة MRG
+          © {new Date().getFullYear()} جميع الحقوق محفوظة لمجموعة Learnock
         </div>
       </div>
     </footer>
