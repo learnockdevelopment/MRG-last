@@ -95,9 +95,9 @@ export default function CompanyPage() {
               إحدى شركات مجموعة MRG`}
             </motion.h1>
 
-            {websiteUrl && (
+           
               <Link
-                href={websiteUrl}
+                href={`/companies`}
                 className="flex w-fit items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md mt-4"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
@@ -119,7 +119,7 @@ export default function CompanyPage() {
                   الذهاب الي الموقع
                 </span>
               </Link>
-            )}
+          
           </div>
         </motion.div>
       </div>
