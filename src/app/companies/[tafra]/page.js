@@ -100,30 +100,37 @@ export default function CompanyPage() {
               {`${title} 
               إحدى شركات مجموعة MRG`}
             </motion.h1>
-
-            <Link
-              href={`/companies`}
-              className="flex w-fit items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md mt-4"
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
-                <svg
-                  className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <span className="text-xl sm:text-2xl text-green-700 font-tajawal font-medium">
-                الذهاب الي الموقع
-              </span>
-            </Link>
+            {websiteUrl && (
+              <a
+                href={
+                  websiteUrl.startsWith("http")
+                    ? websiteUrl
+                    : `https://${websiteUrl}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-fit items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md mt-4"
+              >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
+                  <svg
+                    className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xl sm:text-2xl text-green-700 font-tajawal font-medium">
+                  الذهاب الي الموقع
+                </span>
+              </a>
+            )}
           </div>
         </motion.div>
       </div>
@@ -450,7 +457,10 @@ export default function CompanyPage() {
         advantages.length > 0 ||
         partnerships.length > 0 ||
         achievements.length > 0 ||
-        technologies.length > 0) && (
+        technologies.length > 0 ||
+        targetMarkets.length > 0 ||
+        targetSectors.length > 0 ||
+        advantages.length > 0) && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isLoaded ? { opacity: 1, y: 0 } : {}}
@@ -506,6 +516,140 @@ export default function CompanyPage() {
                           >
                             <span className="text-green-500 mt-1">•</span>
                             <span className="text-gray-700">{product}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+                {/* Target Sectors Section */}
+                {targetSectors.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        القطاعات المستهدفة
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {targetSectors.map((sector, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{sector}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Certifications Section */}
+                {certifications.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944 11.955 11.955 0 013.382 7.984 12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        الشهادات
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {certifications.map((cert, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{cert}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Target Markets Section */}
+                {targetMarkets.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m0 0a9 9 0 019 9m0 0a9 9 0 01-9 9m0 0c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        الأسواق المستهدفة
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {targetMarkets.map((market, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{market}</span>
                           </motion.li>
                         ))}
                       </ul>

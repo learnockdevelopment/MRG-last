@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
+import { companiesData } from "../companies/page";
 const CompaniesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -163,6 +163,7 @@ const CompaniesSection = () => {
             <CarouselContent className={"h-full"}>
               {companies.map((company, index) => (
                 <CarouselItem
+                  key={index}
                   className={`${
                     hoveredIndex === index ||
                     (!hoveredIndex && company.mainCard)
@@ -170,14 +171,68 @@ const CompaniesSection = () => {
                       : "basis-1/5 "
                   }`}
                 >
-                  <CompanyCard
-                    key={index}
-                    company={company}
-                    index={index}
-                    isHovered={hoveredIndex === index}
-                    isAnyHovered={hoveredIndex !== null}
-                    onHover={() => setHoveredIndex(index)}
-                  />
+                  <Link
+                    href={{
+                      pathname: "/companies/" + index,
+                      query: {
+                        title: companiesData.companies[index].name,
+                        description: companiesData.companies[index].description,
+                        imageUrl: companiesData.companies[index].image,
+                        websiteUrl: companiesData.companies[index].website,
+                        vision: JSON.stringify(
+                          companiesData.companies[index].vision
+                        ),
+                        goals: JSON.stringify(
+                          companiesData.companies[index].goals
+                        ),
+                        mission:
+                          typeof mission === "string"
+                            ? companiesData.companies[index].mission
+                            : JSON.stringify(
+                                companiesData.companies[index].mission
+                              ),
+                        phone: companiesData.companies[index].phone,
+                        address: companiesData.companies[index].address,
+                        products: JSON.stringify(
+                          companiesData.companies[index].products
+                        ),
+                        services: JSON.stringify(
+                          companiesData.companies[index].services
+                        ),
+                        values: JSON.stringify(
+                          companiesData.companies[index].values
+                        ),
+                        branches: JSON.stringify(
+                          companiesData.companies[index].branches
+                        ),
+                        training_fields: JSON.stringify(
+                          companiesData.companies[index].training_fields
+                        ),
+                        advantages: JSON.stringify(
+                          companiesData.companies[index].advantages
+                        ),
+                        certifications: JSON.stringify(
+                          companiesData.companies[index].certifications
+                        ),
+                        target_sectors: JSON.stringify(
+                          companiesData.companies[index].target_sectors
+                        ),
+                        target_markets: JSON.stringify(
+                          companiesData.companies[index].target_markets
+                        ),
+                        email: companiesData.companies[index].email,
+                      },
+                    }}
+                    className="block w-full h-full"
+                  >
+                    <CompanyCard
+                      company={company}
+                      index={index}
+                      isHovered={hoveredIndex === index}
+                      isAnyHovered={hoveredIndex !== null}
+                      onHover={() => setHoveredIndex(index)}
+                    />
+                  </Link>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -277,13 +332,8 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
       {(isHovered || (!isAnyHovered && company.mainCard)) && (
         <div className="relative z-10 h-full flex flex-col justify-end p-4 sm:p-6 md:p-8">
           <div className="flex flex-col sm:flex-row-reverse justify-between items-start sm:items-end gap-4">
-            <Link
-              href={{
-                pathname: "/companies/",
-              }}
-              className="flex items-center gap-2 group"
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-50 rounded-full flex justify-center items-center transition-all group-hover:bg-white">
+            <span className="flex items-center gap-2">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-50 rounded-full flex justify-center items-center">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rotate-[-45.79deg]">
                   <div className="w-full h-full bg-green-700 rounded-sm"></div>
                 </div>
@@ -291,7 +341,7 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
               <span className="text-green-50 text-lg sm:text-xl md:text-2xl font-bold font-tajawal">
                 {company.description}
               </span>
-            </Link>
+            </span>
             <h3
               className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-tajawal text-right"
               dir="rtl"

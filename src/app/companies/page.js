@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 
-const companiesData = {
+export const companiesData = {
   group_name: "مجموعة شركات اقتصادية مصرية",
   about: {
     description:
@@ -61,7 +61,7 @@ const companiesData = {
       ],
       vision: `أن تكون دار طفرة للنشر والتوزيع منصة رائدة في تقديم محتوى متنوع يجمع بين الإبداع والإفادة ويمزج بين جودة الأعمال الأدبية وقوة المحتوى الفكري ،
 مع إحياء التراث العريق، بما يلبي احتياجات القارئ، ويرتقي بالفكر المصري والعربي ، ويسهم في بناء إنسان أكثر وعيا وكفاءة، ومجتمع أكثر تطورا `,
-    email : "info@tafrabooks.com",
+      email: "info@tafrabooks.com",
     },
     {
       name: "مران للاستثمار الرياضي",
@@ -92,7 +92,7 @@ const companiesData = {
         "فعاليات ترفيهية لتنظيم أيام وأنشطة مناسبة لجميع أفراد الأسرة.",
       ],
       img_url: "/mrg7.jpg",
-      phone:"0155 114 66 29",
+      phone: "0155 114 66 29",
     },
 
     {
@@ -359,7 +359,7 @@ const AboutPage = () => {
           {companiesData.companies.map((company, index) => (
             <Card
               key={index}
-              id={index}
+              id={company.id ?? index}
               company_name={company.name}
               description={company.description}
               img_url={company.img_url}
