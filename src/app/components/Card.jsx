@@ -25,27 +25,28 @@ const Card = ({
 }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm h-full flex flex-col hover:shadow-md transition-shadow">
-      <Link href={`/companies/${id}`} className="flex justify-center">
+      <div href={`/companies/${id}`} className="flex justify-center">
         <img
           className="rounded-t-lg w-full h-48 object-cover"
           src={img_url || "/placeholder-company.jpg"}
           alt={company_name}
         />
-      </Link>
+      </div>
       <div className="p-5 flex flex-col flex-grow">
-        <Link href={`/companies/${id}`}>
+        <div href={`/companies/${id}`}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
             {company_name}
           </h5>
-        </Link>
+        </div>
 
         <div className="mb-3 font-normal text-gray-700 flex-grow">
           <p className="line-clamp-3 mb-2">{description}</p>
 
           {/* Display phone if available */}
           {phone && (
-            <p className="text-sm mt-1">
-              <span className="font-semibold">هاتف:</span> {phone}
+            <p className="text-sm mt-1" dir="rtl">
+              <span className="font-semibold">هاتف:</span>{" "}
+              <span dir="ltr">{phone}</span>
             </p>
           )}
 
