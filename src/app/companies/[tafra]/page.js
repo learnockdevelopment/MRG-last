@@ -16,12 +16,14 @@ export default function CompanyPage() {
   const description = searchParams.get("description");
   const imageUrl = searchParams.get("imageUrl");
   const websiteUrl = searchParams.get("websiteUrl");
-
-  // Mission, vision, goals
+  const email = searchParams.get("email") || ""; // Default to empty string if not provided
+  // Mission, vision, goals, and other details
   const vision = searchParams.get("vision");
   const goals = JSON.parse(searchParams.get("goals") || "[]");
   const mission = JSON.parse(searchParams.get("mission") || "[]");
-
+  const targetSectors = JSON.parse(searchParams.get("target_sectors") || "[]");
+  const certifications = JSON.parse(searchParams.get("certifications") || "[]");
+  const targetMarkets = JSON.parse(searchParams.get("target_markets") || "[]");
   // Additional details
   const phone = searchParams.get("phone");
   const address = searchParams.get("address");
@@ -33,6 +35,10 @@ export default function CompanyPage() {
     searchParams.get("training_fields") || "[]"
   );
   const advantages = JSON.parse(searchParams.get("advantages") || "[]");
+  // New items
+  const partnerships = JSON.parse(searchParams.get("partnerships") || "[]");
+  const achievements = JSON.parse(searchParams.get("achievements") || "[]");
+  const technologies = JSON.parse(searchParams.get("technologies") || "[]");
 
   useEffect(() => {
     setIsLoaded(true);
@@ -95,31 +101,29 @@ export default function CompanyPage() {
               إحدى شركات مجموعة MRG`}
             </motion.h1>
 
-           
-              <Link
-                href={`/companies`}
-                className="flex w-fit items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md mt-4"
-              >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
-                  <svg
-                    className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <span className="text-xl sm:text-2xl text-green-700 font-tajawal font-medium">
-                  الذهاب الي الموقع
-                </span>
-              </Link>
-          
+            <Link
+              href={`/companies`}
+              className="flex w-fit items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md mt-4"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
+                <svg
+                  className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span className="text-xl sm:text-2xl text-green-700 font-tajawal font-medium">
+                الذهاب الي الموقع
+              </span>
+            </Link>
           </div>
         </motion.div>
       </div>
@@ -182,7 +186,7 @@ export default function CompanyPage() {
                 )}
 
                 {/* Contact Info Section */}
-                {(phone || address || websiteUrl) && (
+                {(phone || address || websiteUrl || email) && (
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={isLoaded ? { opacity: 1, x: 0 } : {}}
@@ -228,7 +232,8 @@ export default function CompanyPage() {
                         <div>
                           <p className="text-sm text-gray-500">الهاتف</p>
                           <a
-                            href={`tel:${phone}`} dir="ltr"
+                            href={`tel:${phone}`}
+                            dir="ltr"
                             className="text-xl font-medium text-green-700 hover:text-green-800 transition-colors"
                           >
                             {phone}
@@ -265,6 +270,34 @@ export default function CompanyPage() {
                           <p className="text-sm text-gray-500">العنوان</p>
                           <p className="text-lg font-medium text-gray-700">
                             {address}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    {email && (
+                      <div className="flex items-center gap-4 bg-blue-50 p-4 rounded-xl">
+                        <div className="bg-white p-3 rounded-full shadow-sm">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 text-blue-600"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M16 12H8m0 0l4-4m-4 4l4 4m8-8v8a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-500">
+                            البريد الإلكتروني
+                          </p>
+                          <p className="text-lg font-medium text-gray-700">
+                            {email}
                           </p>
                         </div>
                       </div>
@@ -356,7 +389,7 @@ export default function CompanyPage() {
           <div className="flex gap-6 justify-center items-center text-center flex-wrap">
             {/* Mission Card - Only show if there's mission */}
             {mission.length > 0 && (
-              <div className="p-4 py-8 w-96 min-h-[590px] bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
+              <div className="p-4 py-8 w-96 min-h-[590px] self-stretch bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
                 <h1 className="text-black text-2xl font-bold font-['Open_Sans']">
                   رسالة الشركة
                 </h1>
@@ -377,7 +410,7 @@ export default function CompanyPage() {
 
             {/* Goals Card - Only show if there's goals */}
             {goals.length > 0 && (
-              <div className="p-4 py-8 w-96 min-h-[590px] bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
+              <div className="p-4 py-8 w-96 min-h-[590px] self-stretch bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
                 <h1 className="text-black text-2xl font-bold font-['Open_Sans']">
                   أهداف الشركة
                 </h1>
@@ -394,7 +427,7 @@ export default function CompanyPage() {
 
             {/* Vision Card - Only show if there's vision */}
             {vision && (
-              <div className="p-4 py-8 w-96 min-h-[590px] bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
+              <div className="p-4 py-8 w-96 min-h-[590px] self-stretch bg-green-50 rounded-2xl shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-lg flex flex-col justify-start items-center gap-6">
                 <h1 className="text-black text-2xl font-bold font-['Open_Sans']">
                   رؤية الشركة
                 </h1>
@@ -414,7 +447,10 @@ export default function CompanyPage() {
         values.length > 0 ||
         branches.length > 0 ||
         training_fields.length > 0 ||
-        advantages.length > 0) && (
+        advantages.length > 0 ||
+        partnerships.length > 0 ||
+        achievements.length > 0 ||
+        technologies.length > 0) && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isLoaded ? { opacity: 1, y: 0 } : {}}
@@ -701,6 +737,141 @@ export default function CompanyPage() {
                           >
                             <span className="text-green-500 mt-1">•</span>
                             <span className="text-gray-700">{advantage}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Partnerships Section - New */}
+                {partnerships.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                          ></path>
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        الشراكات
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {partnerships.map((partnership, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{partnership}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Achievements Section - New */}
+                {achievements.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        الإنجازات
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {achievements.map((achievement, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{achievement}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Technologies Section - New */}
+                {technologies.length > 0 && (
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-green-100"
+                  >
+                    <div className="bg-green-100 px-6 py-4 flex items-center gap-3">
+                      <div className="bg-green-600 p-2 rounded-full">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold text-green-800">
+                        التقنيات
+                      </h3>
+                    </div>
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {technologies.map((technology, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{technology}</span>
                           </motion.li>
                         ))}
                       </ul>

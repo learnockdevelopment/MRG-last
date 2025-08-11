@@ -17,7 +17,11 @@ const Card = ({
   values,
   branches,
   training_fields,
-  advantages
+  advantages,
+  target_sectors,
+  certifications,
+  target_markets,
+  email, // Added email prop
 }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm h-full flex flex-col hover:shadow-md transition-shadow">
@@ -85,13 +89,18 @@ const Card = ({
                 values: JSON.stringify(values),
                 branches: JSON.stringify(branches),
                 training_fields: JSON.stringify(training_fields),
-                advantages: JSON.stringify(advantages)
+                advantages: JSON.stringify(advantages),
+                certifications: JSON.stringify(certifications),
+                target_sectors: JSON.stringify(target_sectors),
+                target_markets: JSON.stringify(target_markets),
+                email : email, // Pass email in query
+
               }}}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 w-fit"
           >
             للتفاصيل اضغط هنا
             <svg 
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2" 
+              className="ltr:rotate-180 w-3.5 h-3.5 ms-2" 
               aria-hidden="true" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 

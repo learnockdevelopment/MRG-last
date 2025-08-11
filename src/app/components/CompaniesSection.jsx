@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 
 import {
   Carousel,
@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 const CompaniesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -23,9 +23,8 @@ const CompaniesSection = () => {
       hoverWidth: "w-1/2 lg:w-48",
       position: "lg:left-[416px]",
       imageSize: "w-full lg:w-[752px] h-full lg:h-[564px] lg:left-[-230px]",
-      link: 'dar-tafrah-publishing',
-            website: '#'
-
+      link: "dar-tafrah-publishing",
+      website: "#",
     },
     {
       name: "شركة ITC لتنظيم المؤتمرات",
@@ -35,7 +34,7 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-0",
       imageSize: "w-full lg:w-[774px] h-full lg:h-[516px] lg:left-[-432px]",
-      link: 'itc-conference-organization'
+      link: "itc-conference-organization",
     },
     {
       name: "موقع أخبار الطب",
@@ -45,10 +44,9 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: 'medical-news-site'
+      link: "medical-news-site",
     },
     {
-
       name: "أكاديمية ITalent",
       image: "/cardmrg.jpg",
       rotated: true,
@@ -57,10 +55,9 @@ const CompaniesSection = () => {
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
       link: "italent-academy",
-      website: '#'
+      website: "#",
     },
     {
-
       name: "مران للاستثمار الرياضي",
       image: "/mrg7.jpg",
       rotated: true,
@@ -68,10 +65,9 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "marran-sports-investment"
+      link: "marran-sports-investment",
     },
     {
-
       name: "مصنع PURE PLAST",
       image: "/IMG_2631-1-scaled-1.jpg",
       rotated: true,
@@ -80,10 +76,9 @@ const CompaniesSection = () => {
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
       link: "pure-plast-factory",
-      website: '#'
+      website: "#",
     },
     {
-
       name: "مصنع السويس لألياف البوليستر",
       image: "/repreve-unifi-recycled-polyester-factory-tour.jpg",
       rotated: true,
@@ -91,21 +86,20 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "suez-polyester-fiber-factory"
+      link: "suez-polyester-fiber-factory",
     },
     {
-
       name: "شركة SUS للأنظمة الأمنية",
-      image: "/Integrated-Security-Management-Systems-ISMS-shutterstock_146057678.jpg",
+      image:
+        "/Integrated-Security-Management-Systems-ISMS-shutterstock_146057678.jpg",
       rotated: true,
       defaultWidth: "w-1/2 lg:w-48",
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "sus-security-systems"
+      link: "sus-security-systems",
     },
     {
-
       name: "شركة فوكس ساين",
       image: "/405939716_787874746685810_4023399380978356763_n.jpg",
       rotated: true,
@@ -113,10 +107,9 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "fox-sign"
+      link: "fox-sign",
     },
     {
-
       name: "شركة MixMax للشاشات",
       image: "/images-1.jpg",
       rotated: true,
@@ -124,10 +117,9 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "mixmax"
+      link: "mixmax",
     },
     {
-
       name: "الشركة المتحدة للتجارة والتوكيلات",
       image: "/PC-components-User2Computers.jpeg",
       rotated: true,
@@ -135,10 +127,9 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "united-trading-agencies"
+      link: "united-trading-agencies",
     },
     {
-
       name: "أرض الذهب LAND OF GOLD",
       image: "/file.jpg",
       rotated: true,
@@ -146,9 +137,8 @@ const CompaniesSection = () => {
       hoverWidth: "w-full lg:w-[522px]",
       position: "lg:left-[208px]",
       imageSize: "w-full lg:w-[909.82px] h-full lg:h-[516px] lg:left-[-297px]",
-      link: "land-of-gold"
-    }
-
+      link: "land-of-gold",
+    },
   ];
 
   return (
@@ -161,15 +151,25 @@ const CompaniesSection = () => {
   onMouseLeave={() => setHoveredIndex(null)}
 > */}
 
-          <Carousel opts={{
-            align: "start",
-            direction: 'ltr',
-          }}
-            className=" pb-[60px] w-full h-64 sm:h-80 md:h-[516px] relative lg:flex-1 flex gap-4 transition-all duration-500 overflow-hidden flex-row-reverse" style={{ direction: 'ltr' }}
-            onMouseLeave={() => setHoveredIndex(null)}>
+          <Carousel
+            opts={{
+              align: "start",
+              direction: "ltr",
+            }}
+            className=" pb-[60px] w-full h-64 sm:h-80 md:h-[516px] relative lg:flex-1 flex gap-4 transition-all duration-500 overflow-hidden flex-row-reverse"
+            style={{ direction: "ltr" }}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
             <CarouselContent className={"h-full"}>
               {companies.map((company, index) => (
-                <CarouselItem className={`${hoveredIndex === index || !hoveredIndex && company.mainCard ? 'basis-1/2' : 'basis-1/5 '}`}>
+                <CarouselItem
+                  className={`${
+                    hoveredIndex === index ||
+                    (!hoveredIndex && company.mainCard)
+                      ? "basis-1/2"
+                      : "basis-1/5 "
+                  }`}
+                >
                   <CompanyCard
                     key={index}
                     company={company}
@@ -181,7 +181,7 @@ const CompaniesSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className='absolute inset-0 flex items-center justify-between px-4 w-[50px] h-[50px] left-1/2 top-[90%]'>
+            <div className="absolute inset-0 flex items-center justify-between px-4 w-[50px] h-[50px] left-1/2 top-[90%]">
               <CarouselPrevious>Prev</CarouselPrevious>
               <CarouselNext>Next</CarouselNext>
             </div>
@@ -189,10 +189,12 @@ const CompaniesSection = () => {
 
           {/* </div> */}
 
-
           {/* Text Content */}
-          <div className="lg:w-72 flex flex-col justify-between" data-aos="fade-left">
-            <div className='flex flex-col items-end mb-8 lg:mb-0 text-right'>
+          <div
+            className="lg:w-72 flex flex-col justify-between"
+            data-aos="fade-left"
+          >
+            <div className="flex flex-col items-end mb-8 lg:mb-0 text-right">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-blue-900 font-bold font-tajawal mb-2 lg:mb-4">
                 شركاتنا.
               </h2>
@@ -201,8 +203,15 @@ const CompaniesSection = () => {
               </p>
             </div>
 
-            <div className="flex justify-start" data-aos="fade-up" data-aos-delay="400">
-              <Link href="/companies" className="flex items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md">
+            <div
+              className="flex justify-start"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <Link
+                href="/companies"
+                className="flex items-center gap-3 sm:gap-4 bg-green-200 hover:bg-green-300 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-md"
+              >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-700 rounded-full flex items-center justify-center transition-transform hover:scale-110">
                   <svg
                     className="w-6 h-6 sm:w-7 sm:h-7 text-white transform -rotate-45"
@@ -231,12 +240,12 @@ const CompaniesSection = () => {
 };
 
 const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
-  let flexClass = 'flex-1';
+  let flexClass = "flex-1";
 
   if (isHovered) {
-    flexClass = 'flex-[2] ';
+    flexClass = "flex-[2] ";
   } else if (!isAnyHovered && company.mainCard) {
-    flexClass = 'flex-[2]';
+    flexClass = "flex-[2]";
   }
 
   return (
@@ -250,15 +259,17 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
     >
       {/* Background image */}
       <div
-        className={`absolute inset-0 bg-cover bg-center transition-transform duration-500 ${isHovered ? 'scale-105' : 'scale-100'
-          }`}
+        className={`absolute inset-0 bg-cover bg-center transition-transform duration-500 ${
+          isHovered ? "scale-105" : "scale-100"
+        }`}
         style={{ backgroundImage: `url(${company.image})` }}
       >
         <div
-          className={`absolute inset-0 transition-all duration-300 ${isHovered
-            ? 'bg-gradient-to-t from-black/70 to-transparent'
-            : 'bg-gradient-to-t from-black/70 to-transparent'
-            }`}
+          className={`absolute inset-0 transition-all duration-300 ${
+            isHovered
+              ? "bg-gradient-to-t from-black/70 to-transparent"
+              : "bg-gradient-to-t from-black/70 to-transparent"
+          }`}
         ></div>
       </div>
 
@@ -266,13 +277,12 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
       {(isHovered || (!isAnyHovered && company.mainCard)) && (
         <div className="relative z-10 h-full flex flex-col justify-end p-4 sm:p-6 md:p-8">
           <div className="flex flex-col sm:flex-row-reverse justify-between items-start sm:items-end gap-4">
-            <Link href={{
-              pathname: '/companies/' + company.link, query: {
-                title: company.name,
-                imageUrl: company.image,
-                websiteUrl: company.website
-              }
-            }} className="flex items-center gap-2 group">
+            <Link
+              href={{
+                pathname: "/companies/",
+              }}
+              className="flex items-center gap-2 group"
+            >
               <div className="w-10 h-10 sm:w-12 sm:h-12 p-1 bg-green-50 rounded-full flex justify-center items-center transition-all group-hover:bg-white">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rotate-[-45.79deg]">
                   <div className="w-full h-full bg-green-700 rounded-sm"></div>
@@ -282,7 +292,10 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
                 {company.description}
               </span>
             </Link>
-            <h3 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-tajawal text-right" dir='rtl'>
+            <h3
+              className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-tajawal text-right"
+              dir="rtl"
+            >
               {company.name}
             </h3>
           </div>
@@ -293,9 +306,10 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
       {!isHovered && (isAnyHovered || !company.mainCard) && (
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <h3
-            className={`text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-tajawal text-center transition-all duration-300 ${company.rotated ? 'transform -rotate-90 whitespace-nowrap' : ''
-              }`}
-            dir='rtl'
+            className={`text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-tajawal text-center transition-all duration-300 ${
+              company.rotated ? "transform -rotate-90 whitespace-nowrap" : ""
+            }`}
+            dir="rtl"
           >
             {company.name}
           </h3>
@@ -304,7 +318,5 @@ const CompanyCard = ({ company, index, isHovered, isAnyHovered, onHover }) => {
     </div>
   );
 };
-
-
 
 export default CompaniesSection;
