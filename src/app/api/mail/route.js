@@ -77,7 +77,7 @@ export async function POST(req) {
     console.log("✍ Preparing email content...");
     const sanitizedMessage = message.replace(/<[^>]*>?/gm, ''); // Basic HTML sanitization
     const emailContent = {
-      from: `"Website Contact" <${process.env.SMTP_USER}>`,
+      from: `${name || 'No Title'} <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_FORM_RECIPIENT || email, // Use configured recipient or fallback to sender
       replyTo: email, // Set reply-to to the sender's email
       subject: `📩 New Contact Form Submission: ${title || 'No Subject'}`.substring(0, 78), // Limit subject length
