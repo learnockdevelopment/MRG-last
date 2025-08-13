@@ -1,32 +1,86 @@
+
 import nodemailer from "nodemailer";
+
+// Validate environment variables at startup
+const validateEnvVars = () => {
+  const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS'];
+  const missingVars = requiredVars.filter(varName => !process.env[varName]);
+  
+  if (missingVars.length > 0) {
+    throw new Error(`Missing required SMTP environment variables: ${missingVars.join(', ')}`);
+  }
+};
+
+// Validate environment variables when the module loads
+validateEnvVars();
 
 export async function POST(req) {
   console.log("📨 Incoming contact form request...");
 
   try {
+    // Validate request method
+    if (req.method !== 'POST') {
+      return new Response(
+        JSON.stringify({ error: 'Method not allowed' }),
+        { status: 405 }
+      );
+    }
+
     console.log("📥 Reading request body...");
     const body = await req.json();
     console.log("✅ Request body received:", body);
 
+    // Validate required fields
     const { name, email, message, phone, title } = body;
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields' }),
+        { status: 400 }
+      );
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid email format' }),
+        { status: 400 }
+      );
+    }
 
     console.log("🛠 Configuring Nodemailer transporter...");
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT),
-      secure: true, // true for 465, false for other ports
+      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      // Additional security settings
+      tls: {
+        rejectUnauthorized: true, // Always verify SSL certificate
+        minVersion: "TLSv1.2" // Enforce minimum TLS version
+      }
     });
     console.log("✅ Transporter configured successfully");
 
+    // Test the SMTP connection
+    try {
+      await transporter.verify();
+      console.log("✅ SMTP connection verified");
+    } catch (verifyError) {
+      console.error("❌ SMTP connection verification failed:", verifyError);
+      throw new Error("SMTP server connection failed");
+    }
+
     console.log("✍ Preparing email content...");
+    const sanitizedMessage = message.replace(/<[^>]*>?/gm, ''); // Basic HTML sanitization
     const emailContent = {
       from: `"Website Contact" <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: `📩 New Contact Form Submission from ${name}`,
+      to: process.env.CONTACT_FORM_RECIPIENT || email, // Use configured recipient or fallback to sender
+      replyTo: email, // Set reply-to to the sender's email
+      subject: `📩 New Contact Form Submission: ${title || 'No Subject'}`.substring(0, 78), // Limit subject length
       html: `
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
   <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 20px; color: white;">
@@ -63,21 +117,28 @@ export async function POST(req) {
   </div>
 </div>
 `,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nSubject: ${title || 'N/A'}\n\nMessage:\n${sanitizedMessage}`,
     };
-    console.log("✅ Email content prepared:", emailContent);
+    console.log("✅ Email content prepared");
 
     console.log("🚀 Sending email...");
-    await transporter.sendMail(emailContent);
-    console.log("✅ Email sent successfully!");
+    const info = await transporter.sendMail(emailContent);
+    console.log("✅ Email sent successfully!", info.messageId);
 
     return new Response(
-      JSON.stringify({ message: "Email sent successfully" }),
+      JSON.stringify({ 
+        message: "Email sent successfully",
+        messageId: info.messageId 
+      }),
       { status: 200 }
     );
   } catch (error) {
     console.error("❌ Email sending error:", error);
     return new Response(
-      JSON.stringify({ error: "Failed to send email" }),
+      JSON.stringify({ 
+        error: "Failed to send email",
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      }),
       { status: 500 }
     );
   }
