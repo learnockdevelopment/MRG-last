@@ -12,6 +12,8 @@ export default function ContactForm() {
     title: "",
   });
 
+  const [loading, setLoading] = useState(false); // ✅ Loading state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -21,78 +23,77 @@ export default function ContactForm() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    console.log("📦 Sending form data:", formData);
 
-  console.log("📦 Sending form data:", formData);
-
-  // Basic validation
-  if (!formData.name || !formData.email || !formData.message) {
-    Swal.fire({
-      title: "خطأ",
-      text: "الرجاء ملء جميع الحقول المطلوبة",
-      icon: "error",
-      confirmButtonText: "حسناً",
-      customClass: {
-        confirmButton:
-          "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
-      },
-      buttonsStyling: false,
-    });
-    return;
-  }
-
-  try {
-    const res = await fetch("/api/mail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-    console.log("📩 Server response:", data);
-
-    if (!res.ok) {
-      throw new Error(data?.error || "حدث خطأ أثناء إرسال الرسالة");
+    if (!formData.name || !formData.email || !formData.message) {
+      Swal.fire({
+        title: "خطأ",
+        text: "الرجاء ملء جميع الحقول المطلوبة",
+        icon: "error",
+        confirmButtonText: "حسناً",
+        customClass: {
+          confirmButton:
+            "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
+        },
+        buttonsStyling: false,
+      });
+      return;
     }
 
-    Swal.fire({
-      title: "تم الإرسال بنجاح!",
-      text: "شكراً لتواصلك معنا، سنرد عليك في أقرب وقت ممكن.",
-      icon: "success",
-      confirmButtonText: "حسناً",
-      customClass: {
-        confirmButton:
-          "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
-        popup: "text-right",
-      },
-      buttonsStyling: false,
-    });
+    setLoading(true); // ✅ Start loading
+    try {
+      const res = await fetch("/api/mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-      phone: "",
-      title: "",
-    });
-    console.log("✅ Form reset complete");
-  } catch (err) {
-    console.error("🚨 Submission error:", err.message);
-    Swal.fire({
-      title: "خطأ",
-      text: err.message,
-      icon: "error",
-      confirmButtonText: "حسناً",
-      customClass: {
-        confirmButton:
-          "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
-      },
-      buttonsStyling: false,
-    });
-  }
-};
+      const data = await res.json();
+      console.log("📩 Server response:", data);
 
+      if (!res.ok) {
+        throw new Error(data?.error || "حدث خطأ أثناء إرسال الرسالة");
+      }
+
+      Swal.fire({
+        title: "تم الإرسال بنجاح!",
+        text: "شكراً لتواصلك معنا، سنرد عليك في أقرب وقت ممكن.",
+        icon: "success",
+        confirmButtonText: "حسناً",
+        customClass: {
+          confirmButton:
+            "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
+          popup: "text-right",
+        },
+        buttonsStyling: false,
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        phone: "",
+        title: "",
+      });
+      console.log("✅ Form reset complete");
+    } catch (err) {
+      console.error("🚨 Submission error:", err.message);
+      Swal.fire({
+        title: "خطأ",
+        text: err.message,
+        icon: "error",
+        confirmButtonText: "حسناً",
+        customClass: {
+          confirmButton:
+            "bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded mx-2",
+        },
+        buttonsStyling: false,
+      });
+    } finally {
+      setLoading(false); // ✅ End loading
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 mt-28">
@@ -151,9 +152,14 @@ export default function ContactForm() {
 
             <button
               type="submit"
-              className="w-48 h-14 bg-blue-900 rounded-3xl text-white text-base font-semibold font-cairo hover:bg-blue-800 transition-colors duration-300"
+              disabled={loading}
+              className={`w-48 h-14 rounded-3xl text-white text-base font-semibold font-cairo transition-colors duration-300 ${
+                loading
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-blue-900 hover:bg-blue-800"
+              }`}
             >
-              ارسالِ
+              {loading ? "جارٍ الإرسال..." : "إرسال"}
             </button>
           </form>
         </div>
