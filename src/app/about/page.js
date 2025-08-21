@@ -56,7 +56,7 @@ export default function AboutPage() {
               <li>من أحلى كلام البشر.</li>
               <li>مقالات ومقولات.</li>
               <li>كلام محمود.</li>
-              <li>احنا مش هموت.</li>
+              <li>احنا مش هنموت.</li>
             </ul>
           </div>
 

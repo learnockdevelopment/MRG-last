@@ -10,12 +10,12 @@ const Footer = () => {
     { label: "تواصل معنا", href: "/contact" }
   ];
 
-  const socialLinks = [
-    { name: "Facebook", icon: "https://placehold.co/20x20", href: "https://facebook.com" },
-    { name: "Twitter", icon: "https://placehold.co/20x20", href: "https://twitter.com" },
-    { name: "Instagram", icon: "https://placehold.co/20x20", href: "https://instagram.com" },
-    { name: "LinkedIn", icon: "https://placehold.co/20x20", href: "https://linkedin.com" }
-  ];
+const socialLinks = [
+  { name: "Facebook", icon: "/socialicons/facebook.svg", href: "https://facebook.com" },
+  { name: "Twitter", icon: "/socialicons/twitter.svg", href: "https://twitter.com" }, 
+  { name: "Instagram", icon: "/socialicons/instagram.svg", href: "https://instagram.com" },
+  { name: "LinkedIn", icon: "/socialicons/linkedin.svg", href: "https://linkedin.com" }
+];
 
   const companyDescription = "تـأسـسـت 'مجـمـوعـة MRG' على يـد رجـل الـمجتمع الأسـتـاذ/ مـحـمـود رمضـان، لتصبح اليوم كـيـانـا اقتصاديـا مصريـا يواكـب تطـورات العصـر ويــخـدم احتياجـات الـمجتمع الـمتغيرة.";
 
@@ -37,26 +37,29 @@ const Footer = () => {
             className="max-w-md"
           />
 
-          {/* Logo & Social Media */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="w-24 h-24 bg-white rounded-[46.50px] flex flex-col justify-center items-center mb-4">
-              <img className="w-16 h-14" src="/mrgLogo.png" alt="Footer Logo" />
-            </div>
-            <div className="flex gap-3">
-              {socialLinks.map((link, idx) => (
-                <a 
-                  key={idx} 
-                  href={link.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80"
-                >
-                  <img src={link.icon} alt={link.name} className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+{/* Logo & Social Media */}
+<div className="flex flex-col items-center gap-4">
+  {/* Logo */}
+  <div className="w-24 h-24 bg-white rounded-[46.50px] flex justify-center items-center mb-4">
+    <img className="w-16 h-14" src="/mrgLogo.png" alt="Footer Logo" />
+  </div>
+
+  {/* Social Icons */}
+  <div className="flex gap-3">
+    {socialLinks.map((link, idx) => (
+      <a 
+        key={idx} 
+        href={link.href} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="hover:opacity-80"
+      >
+        <img src={link.icon} alt={link.name} className="w-8 h-8" />
+      </a>
+    ))}
+  </div>
+</div>
+</div>
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-blue-800 text-center text-sm">
