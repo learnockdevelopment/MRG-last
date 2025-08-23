@@ -110,8 +110,8 @@ export default function newsletterPage() {
               />
             </div>
           </div>
-          <div class="w-24 h-7 justify-center text-black text-center text-base font-normal font-['Cairo'] leading-7">
-            مستشار التحرير
+          <div class="w-50 h-7 justify-center text-black text-center text-base font-normal font-['Cairo'] leading-7">
+            مؤسس و رئيس مجلس الإدارة
           </div>
           <div class="w-36 h-6 justify-center text-black text-center text-2xl font-medium font-['Cairo'] leading-relaxed">
             محمود رمضان
